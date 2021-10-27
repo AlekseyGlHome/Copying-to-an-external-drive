@@ -118,16 +118,12 @@ public abstract class Utill {
     }
 
     private static void copyFileStrim(File fileFrom, File fileTo) throws IOException {
-        InputStream is = null;
-        OutputStream os = null;
         int percentProgress = 50;
-        long sizeFile = 0L;
-        long freeSpace = 0L;
+        long sizeFile;
+        long freeSpace;
         int countChar = 0;
 
-        try {
-            is = new FileInputStream(fileFrom);
-            os = new FileOutputStream(fileTo);
+        try (InputStream is = new FileInputStream(fileFrom); OutputStream os = new FileOutputStream(fileTo)) {
             sizeFile = fileFrom.length();
             freeSpace = fileTo.getFreeSpace();
             if (freeSpace < sizeFile) {
@@ -152,14 +148,13 @@ public abstract class Utill {
                     countChar++;
                 }
             }
+            os.flush();
         } finally {
             if (countChar != percentProgress) {
                 for (int i = 0; i < percentProgress - countChar; i++) {
                     System.out.print("#");
                 }
             }
-            is.close();
-            os.close();
         }
         System.out.println();
     }

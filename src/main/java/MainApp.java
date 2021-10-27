@@ -1,7 +1,6 @@
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
-import java.io.Console;
 import java.io.IOException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
