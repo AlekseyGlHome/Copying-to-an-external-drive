@@ -11,4 +11,4 @@ Copying archives from a local disk to an external disk and deleting old archives
 
 Command to run:
 
-    java -jar copyingArxiveToExternalDisk-1.0.jar path_from path_to false
+    java -jar copyingArxiveToExternalDisk-1.0.jar path_from path_to
