@@ -1,5 +1,4 @@
 import java.io.*;
-import java.nio.channels.FileChannel;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 
@@ -133,7 +132,7 @@ public abstract class Utill {
                         " Недостаточно свободного места " + fileTo.getAbsolutePath());
                 return;
             }
-            printProgress(percentProgress);
+            printHederProgress(percentProgress);
             long coutProgress = sizeFile / percentProgress;
             long sizeCopy = 0L;
 
@@ -159,7 +158,7 @@ public abstract class Utill {
         System.out.println();
     }
 
-    private static void printProgress(int percentProgress) {
+    private static void printHederProgress(int percentProgress) {
         System.out.print("\t[");
         for (int i = 0; i < percentProgress; i++) {
             System.out.print("-");
